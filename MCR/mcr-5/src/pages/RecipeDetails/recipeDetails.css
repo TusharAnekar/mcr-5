@@ -1,0 +1,17 @@
+.recipe_details_container {
+    margin: 10px 0 0 20px;
+}
+
+.recipe_details_container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.details_container {
+    display: flex;
+}
+
+.recipe_details_container img {
+    width: 600px;
+    margin-right: 40px;
+}
