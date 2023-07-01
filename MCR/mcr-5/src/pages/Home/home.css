@@ -1,0 +1,54 @@
+.home_page {
+    margin: 10px 0 0 20px;
+}
+
+.home_page .filters_container {
+    display: flex;
+    column-gap: 15px;
+    margin-bottom: 15px;
+}
+
+.home_page .filters_container input {
+    font-size: larger;
+    padding: 5px;
+}
+
+.home_page .radio_buttons_container {
+    display: flex;
+    column-gap: 10px;
+}
+
+.home_page h2 {
+    margin-bottom: 15px;
+}
+
+.recipes_container {
+    display: flex;
+    column-gap: 20px;
+}
+
+.recipe_container {
+    width: 400px;
+    border: 1px solid gray;
+}
+
+.home_page .recipe_container img {
+    width: 400px;
+    cursor: pointer;
+}
+
+.home_page .content_container {
+    margin: 10px;
+    overflow: hidden;
+}
+
+.home_page .content_container button {
+    padding: 10px 15px;
+    width: 48%;
+    cursor: pointer;
+}
+
+.home_page .content_container .buttons_container {
+    display: flex;
+    justify-content: space-between;
+}
