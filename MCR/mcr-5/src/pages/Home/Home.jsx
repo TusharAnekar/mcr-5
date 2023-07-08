@@ -4,12 +4,19 @@ import { useContext, useState } from "react";
 import { DataContext } from "../../data-context";
 
 export function Home() {
-  const { filteredData, setCuisineType, setInputSearchText, handleDelete, setData, data } =
-    useContext(DataContext);
+  const {
+    filteredData,
+    setCuisineType,
+    setInputSearchText,
+    handleDelete,
+    setData,
+    data,
+  } = useContext(DataContext);
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
   const [formDetails, setFormDetails] = useState({
+    id: 0,
     imageUrl: "",
     recipe_name: "",
     ingredients: "",
@@ -23,13 +30,14 @@ export function Home() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setData([...data, formDetails])
-    setShowModal(false)
+    setFormDetails({...formDetails, id: data.length+1})
+    setData([...data, formDetails]);
+    setShowModal(false);
   }
 
-  function handleTextarea (e) {
+  function handleTextarea(e) {
     const newValues = e.target.value.split("\n");
-    setFormDetails({...data, cooking_instructions: newValues});
+    setFormDetails({ ...data, cooking_instructions: newValues });
   }
 
   return (
@@ -77,6 +85,7 @@ export function Home() {
           <div className="modal_content">
             <h3>Add Recipe</h3>
             <form className="form" onSubmit={handleSubmit}>
+              
               <label htmlFor="">
                 Image URL
                 <input
@@ -88,11 +97,21 @@ export function Home() {
               </label>
               <label htmlFor="">
                 Recipe Name
-                <input type="text" name="recipe_name" required onChange={handleInput} />
+                <input
+                  type="text"
+                  name="recipe_name"
+                  required
+                  onChange={handleInput}
+                />
               </label>
               <label htmlFor="">
                 Ingredients
-                <input type="text" name="ingredients" required onChange={handleInput} />
+                <input
+                  type="text"
+                  name="ingredients"
+                  required
+                  onChange={handleInput}
+                />
               </label>
               <label htmlFor="">
                 Cooking Instructions
@@ -106,7 +125,12 @@ export function Home() {
               </label>
               <label htmlFor="">
                 Cuisine Type
-                <input type="text" name="cuisine_type" required onChange={handleInput} />
+                <input
+                  type="text"
+                  name="cuisine_type"
+                  required
+                  onChange={handleInput}
+                />
               </label>
               <button type="submit">Add</button>
             </form>
