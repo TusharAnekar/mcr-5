@@ -2,6 +2,7 @@ import "./home.css";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { DataContext } from "../../data-context";
+import { Modal } from "../../components/Modal/Modal";
 
 export function Home() {
   const {
@@ -11,6 +12,8 @@ export function Home() {
     handleDelete,
     setData,
     data,
+    handleEdit,
+    updateModal, setUpdateModal
   } = useContext(DataContext);
   const navigate = useNavigate();
 
@@ -138,6 +141,10 @@ export function Home() {
         </div>
       )}
 
+      {
+        updateModal && <Modal/>
+      }
+
       <h2>All receipes:</h2>
 
       <div className="recipes_container">
@@ -154,7 +161,7 @@ export function Home() {
               <p>Ingredients: See Receipe</p>
               <p>Instructions: See Receipe</p>
               <div className="buttons_container">
-                <button>Edit</button>
+                <button onClick={() => handleEdit(id)}>Edit</button>
                 <button onClick={() => handleDelete(id)}>Delete</button>
               </div>
             </div>
